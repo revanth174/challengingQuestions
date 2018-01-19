@@ -2,12 +2,30 @@
 public class ArrayEquilibriumIndex {
 
 	public static void main(String args[]) {
-		int[] a = {-7,1,5,2,-4,3,0};
+		int[] a = {0,1,-5,2,-1,3,2};
 		int index = findEquilibriumIndex(a);
 		System.out.println(index);
 	}
 
 	private static int findEquilibriumIndex(int[] a) {
+		int n = a.length;
+		int sum = 0 ;
+		for(int i=0;i<n;i++) {
+			sum += a[i];
+		}
+		int leftsum = 0;
+		for(int  i=0;i<n;i++) {
+			sum -=a[i];
+			if(leftsum == sum)
+				return i;
+			leftsum +=a[i];
+			
+		}
+		
+		return -1;
+	}
+
+	/*private static int findEquilibriumIndex(int[] a) {
 
 		int sum[] = new int[a.length];
 		sum[0] = a[0]; 
@@ -23,6 +41,6 @@ public class ArrayEquilibriumIndex {
 				return i;
 		}
 		return -1;
-	}
+	}*/
 
 }
